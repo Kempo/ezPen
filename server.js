@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/search',(req,res,next)=>{
-	var term = req.params.term;
+	var term = "dddd";
 	res.json({
 	 	user: term
 	});
