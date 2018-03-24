@@ -5,7 +5,7 @@
   <meta name="author" content="oxxo.studio">
   <meta name="copyright" content="oxxo.studio">
   <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>HTML5 控制裝置陀螺儀 ( 三軸 ) demo1 - OXXO.STUDIO</title>
+	<title>ezPen</title>
 	<style>
 		body{
 			margin:50px;
@@ -27,8 +27,23 @@
       g.innerHTML = Math.round(gamma);
           
 		}, false);
+
+    window.addEventListener('devicemotion', function(event) {
+    var tx = document.getElementById('tx'),
+        ty = document.getElementById('ty'),
+        tz = document.getElementById('tz'),
+        x = event.acceleration.x,
+        y = event.acceleration.y,
+        z = event.acceleration.z;
+
+    tx.innerHTML = (x).toFixed(2);
+    ty.innerHTML = Math.round(y);
+    tz.innerHTML = Math.round(z);
+
+    }, false);
+
   }else{
-  	document.querySelector('body').innerHTML = '你的瀏覽器不支援喔';
+  	document.querySelector('body').innerHTML = 'error occurred!';
   }
 	</script>
 </head>
@@ -36,7 +51,13 @@
 	alpha:<span id="alpha"></span><br/>
 	beta:<span id="beta"></span><br/>
 	gamma:<span id="gamma"></span><br/>
-		
+	
+  x:<span id="tx"></span><br/>
+  y:<span id="ty"></span><br/>
+  z:<span id="tz"></span><br/>
+
+
+
   <style>
   #info {
     position: fixed;
