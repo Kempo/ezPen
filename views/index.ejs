@@ -5,6 +5,8 @@
   <meta name="author" content="oxxo.studio">
   <meta name="copyright" content="oxxo.studio">
   <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 	<title>ezPen</title>
 	<style>
 		body{
@@ -81,6 +83,7 @@
     color: #6df;
   }
   </style>
+  <button>testing</button>
 
   <script>
   // var href = location.href;
@@ -91,17 +94,36 @@
   // document.getElementById('infoLink').innerHTML = title.split("demo")[0];
 
 
-  function information() {
-    var term = "ddddd"; // The id of your input was "begriff", not "name"
-    var url = 'http://ez-pen.herokuapp.com/search?term=' + term;
-    // Now send a request to your Node program
-    fetch(url).then(function(res) {
-        console.log(res);
-        // Res will be a Response object.
-        // Use res.text() or res.json() to get the information that the Node program sent.
-    });
-}
-information();
+//   function information() {
+//     var term = "ddddd"; // The id of your input was "begriff", not "name"
+//     var url = 'http://ez-pen.herokuapp.com/search?term=' + term;
+//     // Now send a request to your Node program
+//     fetch(url).then(function(res) {
+//         console.log(res);
+//         // Res will be a Response object.
+//         // Use res.text() or res.json() to get the information that the Node program sent.
+//     });
+// }
+// information();
+
+$('button').on('click', function(event) {
+  event.preventDefault();
+  /* Act on the event */
+  $.ajax({
+    url: '/ajax/test',
+    type: 'get',
+    dataType: 'json',
+    success:function(data){
+      alert("success");
+    },
+    error:function(data){
+      alert('error');
+    }
+  });
+
+});
+
+
   </script>
 </body>
 </html>

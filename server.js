@@ -18,6 +18,13 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
+app.get('/ajax/test',function(req,res){
+  var ajaxTest={
+    tips:"you are not alone"
+  };
+  res.send(ajaxTest);
+});
+
 app.get('/search',(req,res,next)=>{
 	var term = req.params.term;
 	//var term = 'aaa';
