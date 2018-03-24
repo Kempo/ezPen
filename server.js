@@ -21,12 +21,14 @@ app.get('/', function(req, res) {
 app.get('/ajax/test',function(req,res){
 
 	
-	res.json(req.body);
+	res.json(req);
+	console.log(req);
+    console.log('req received');
 	
-  var ajaxTest={
-    tips:"you are not alone"
-  };
-  res.send(ajaxTest);
+  // var ajaxTest={
+  //   tips:"you are not alone"
+  // };
+  // res.send(ajaxTest);
 });
 
 app.get('/search',(req,res,next)=>{
