@@ -18,12 +18,12 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
-var a;
-app.post('/ajax/test',function(req,res){
+var a = "dd";
+app.post('/ajax/test.json',function(req,res){
 
 	
 	a = req;
-	console.log(req);
+	//console.log(req);
     console.log('req received');
 	
   // var ajaxTest={
