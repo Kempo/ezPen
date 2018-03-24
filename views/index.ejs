@@ -109,20 +109,28 @@
 $('button').on('click', function(event) {
   event.preventDefault();
   /* Act on the event */
-  $.ajax({
-    url: '/ajax/test',
-    type: 'POST',
-    timeout: 8000,
-    data: { image: "/static/images/apples.jpeg", text: "apples" },
-    success: function(data) {
-        //show content
-        alert('Success!')
-    },
-    error: function(jqXHR, textStatus, err) {
-        //show error message
-        alert('text status '+textStatus+', err '+err)
-    }
-});
+
+  $.post("/ajax/test",{user: "user",password: "pass"}, function(data){
+            if(data==='done')
+              {
+                alert("login success");
+              }
+  });
+
+//   $.ajax({
+//     url: '/ajax/test',
+//     type: 'POST',
+//     timeout: 8000,
+//     data: { image: "/static/images/apples.jpeg", text: "apples" },
+//     success: function(data) {
+//         //show content
+//         alert('Success!')
+//     },
+//     error: function(jqXHR, textStatus, err) {
+//         //show error message
+//         alert('text status '+textStatus+', err '+err)
+//     }
+// });
 
 });
 
