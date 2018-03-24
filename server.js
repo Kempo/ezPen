@@ -18,11 +18,11 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
-var a = "dd";
+
 app.post('/ajax/test.json',function(req,res){
 
 	
-	a = req;
+	var a = req;
 	//console.log(req);
     console.log('req received');
 	
@@ -36,7 +36,7 @@ app.get('/search',(req,res,next)=>{
 	var term = req.params.term;
 	//var term = 'aaa';
 	res.json(
-		a
+		{1: "ddd"}
 	);
 
 });
