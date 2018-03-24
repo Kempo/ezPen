@@ -6,12 +6,8 @@
   <meta name="copyright" content="oxxo.studio">
   <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>ezPen</title>
-	<style>
-		body{
-			margin:50px;
-			font-size:15px;
-		}
-	</style>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+
 	<script>
   let detect = false;
 	if(window.DeviceOrientationEvent) {
@@ -52,11 +48,12 @@
 
   function trigger() {
     detect = !detect;
-    alert("hello! " + detect);
+    alert("status: " + detect);
   }
 	</script>
 </head>
 <body>
+  <div id="data"> 
 	alpha:<span id="alpha"></span><br/>
 	beta:<span id="beta"></span><br/>
 	gamma:<span id="gamma"></span><br/>
@@ -64,8 +61,12 @@
   x:<span id="tx"></span><br/>
   y:<span id="ty"></span><br/>
   z:<span id="tz"></span><br/>
+  </div>
 
+  <div id="statusChange">
   <button onclick="trigger();"> Activate! </button>
+  </div>
+
 
   <style>
   #info {
