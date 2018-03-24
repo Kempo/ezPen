@@ -112,14 +112,17 @@ $('button').on('click', function(event) {
   $.ajax({
     url: '/ajax/test.json',
     type: 'POST',
-    data: { name : "dddd", ddsd : "dddd"},
-    success:function(data){
-      alert("success");
+    timeout: 2000,
+    data: { image: "/static/images/apples.jpeg", text: "apples" },
+    success: function(data) {
+        //show content
+        alert('Success!')
     },
-    error:function(data){
-      alert('error');
+    error: function(jqXHR, textStatus, err) {
+        //show error message
+        alert('text status '+textStatus+', err '+err)
     }
-  });
+});
 
 });
 
