@@ -34,7 +34,7 @@ app.get('/', function(req, res) {
 //   // };
 //   // res.send(ajaxTest);
 // });
-app.post('/ajax/test.json',function(request,response){
+app.post('/ajax/test',function(request,response){
 	var query1=request.body.var1;
 	var query2=request.body.var2;
 });
