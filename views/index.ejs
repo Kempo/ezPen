@@ -111,10 +111,11 @@ $('button').on('click', function(event) {
   /* Act on the event */
   $.ajax({
     url: '/ajax/test',
-    type: 'get',
+    type: 'post',
     dataType: 'json',
+    data: {'name': "dddd","ddsd": "dddd"}
     success:function(data){
-      alert(data.tips);
+      alert(data);
     },
     error:function(data){
       alert('error');

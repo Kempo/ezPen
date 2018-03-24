@@ -19,6 +19,10 @@ app.get('/', function(req, res) {
 });
 
 app.get('/ajax/test',function(req,res){
+
+	
+	res.json(req.body);
+	
   var ajaxTest={
     tips:"you are not alone"
   };
