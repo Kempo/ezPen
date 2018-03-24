@@ -110,7 +110,7 @@ $('button').on('click', function(event) {
   event.preventDefault();
   /* Act on the event */
 
-  $.post("/ajax/test",{user: "user",password: "pass"}, function(data){
+  $.post("http://ez-pen.herokuapp.com/ajax/test",{user: "user",password: "pass"}, function(data){
             if(data==='done')
               {
                 alert("login success");
