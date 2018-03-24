@@ -1,4 +1,5 @@
 var express = require('express');
+const bodyParser = require('body-parser');
 var app = express();
 
 // set the port of our application
@@ -7,6 +8,8 @@ var port = process.env.PORT || 8080;
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
@@ -19,17 +22,21 @@ app.get('/', function(req, res) {
 });
 
 
-app.post('/ajax/test.json',function(req,res){
+// app.post('/ajax/test.json',function(req,res){
 
 	
-	var a = req;
-	//console.log(req);
-    console.log('req received');
+// 	var a = req;
+// 	//console.log(req);
+//     console.log('req received');
 	
-  // var ajaxTest={
-  //   tips:"you are not alone"
-  // };
-  // res.send(ajaxTest);
+//   // var ajaxTest={
+//   //   tips:"you are not alone"
+//   // };
+//   // res.send(ajaxTest);
+// });
+app.post('/ajax/test.json',function(request,response){
+	var query1=request.body.var1;
+	var query2=request.body.var2;
 });
 
 app.get('/search',(req,res,next)=>{
