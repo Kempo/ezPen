@@ -93,7 +93,7 @@
 
   function information() {
     var term = "ddddd"; // The id of your input was "begriff", not "name"
-    var url = 'http://ez-pen.herokuapp.com//search?term=' + term;
+    var url = 'http://ez-pen.herokuapp.com/search?term=' + term;
     // Now send a request to your Node program
     fetch(url).then(function(res) {
         console.log(res);
