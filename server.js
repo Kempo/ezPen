@@ -20,11 +20,10 @@ app.get('/', function(req, res) {
 
 app.get('/search',(req,res,next)=>{
 	var term = req.params.term;
-	// res.json({
-	// 	user: term
-	// });
-	console.log(term);
-	res.send(term+ "fff");
+	res.json({
+	 	user: term
+	});
+
 });
 
 app.listen(port, function() {
