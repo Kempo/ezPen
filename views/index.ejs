@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 
 	<script>
+  var test = 1;
   let detect = false;
 	if(window.DeviceOrientationEvent) {
 		window.addEventListener('deviceorientation', function(event) {
@@ -29,28 +30,29 @@
           
 		}, false);
 
+
     window.addEventListener('devicemotion', function(event) {
-      setInterval(function() {
       if(detect) {
+        setTimeout(function() {
+          var tx = document.getElementById('tx'),
+              ty = document.getElementById('ty'),
+              tz = document.getElementById('tz'),
+              x = event.acceleration.x,
+              y = event.acceleration.y,
+              z = event.acceleration.z;
 
-    var tx = document.getElementById('tx'),
-        ty = document.getElementById('ty'),
-        tz = document.getElementById('tz'),
-        x = event.acceleration.x,
-        y = event.acceleration.y,
-        z = event.acceleration.z;
+          document.getElementById("x").value = x;
+          document.getElementById("y").value = y;
+          document.getElementById("z").value = z;
 
-    document.getElementById("x").value = x;
-    document.getElementById("y").value = y;
-    document.getElementById("z").value = z;
+          tx.innerHTML = (x).toFixed(2);
+          ty.innerHTML = Math.round(y);
+          tz.innerHTML = Math.round(z);
+          tt.innerHTML = (test+1);
+          //document.getElementById("dataForm").submit();
 
-    tx.innerHTML = (x).toFixed(2);
-    ty.innerHTML = Math.round(y);
-    tz.innerHTML = Math.round(z);
-        document.getElementById("dataForm").submit();
-      }
-
-    },1000);
+      }, 1000);
+    }
 
 
     }, false);
@@ -74,6 +76,7 @@
   x:<span id="tx"></span><br/>
   y:<span id="ty"></span><br/>
   z:<span id="tz"></span><br/>
+  test:<span id="tt"></span><br/>
   </div>
 
   <div id="statusChange">
@@ -114,55 +117,7 @@
   <button>testing</button>
 
   <script>
-<<<<<<< HEAD
-  // var href = location.href;
-  // var page = href.split("demo/");
-  // var name = page[1].split("-demo")[0];
-  // var title = document.querySelector('title').innerHTML;
-  // document.getElementById('infoLink').setAttribute('href', '/articles/' + name + '.html');
-  // document.getElementById('infoLink').innerHTML = title.split("demo")[0];
 
-
-//   function information() {
-//     var term = "ddddd"; // The id of your input was "begriff", not "name"
-//     var url = 'http://ez-pen.herokuapp.com/search?term=' + term;
-//     // Now send a request to your Node program
-//     fetch(url).then(function(res) {
-//         console.log(res);
-//         // Res will be a Response object.
-//         // Use res.text() or res.json() to get the information that the Node program sent.
-//     });
-// }
-// information();
-
-$('button').on('click', function(event) {
-  event.preventDefault();
-  /* Act on the event */
-
-  // $.post("http://ez-pen.herokuapp.com/ajax/test",{user: "user",password: "pass"}, function(data){
-  //           if(data==='done')
-  //             {
-  //               alert("login success");
-  //             }
-  // });
-
-  $.ajax({
-    url: 'http://ez-pen.herokuapp.com/ajax/test',
-    type: 'POST',
-    timeout: 8000,
-    data: { image: "/static/images/apples.jpeg", text: "apples" },
-    success: function(data) {
-        //show content
-        alert('Success!')
-    },
-    error: function(jqXHR, textStatus, err) {
-        //show error message
-        alert('text status '+textStatus+', err '+err)
-    }
-});
-
-});
-=======
       function autoSubmitForm() {
         var auto = setTimeout(function() {autoRefresh(); }, 100);
       }
@@ -176,7 +131,6 @@ $('button').on('click', function(event) {
         clearTimeout(auto);
         auto = setTimeout(function() { submitForm(); autoRefresh(); }, 1000);
       }
->>>>>>> 2940b9ca8ffd60d1d91c85a7e9af7e462b02046d
 
 
   </script>

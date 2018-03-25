@@ -27,32 +27,7 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
-<<<<<<< HEAD
 
-// app.post('/ajax/test.json',function(req,res){
-
-	
-// 	var a = req;
-// 	//console.log(req);
-//     console.log('req received');
-	
-//   // var ajaxTest={
-//   //   tips:"you are not alone"
-//   // };
-//   // res.send(ajaxTest);
-// });
-app.post('/ajax/test',function(request,response){
-	var query1=request.body.var1;
-	var query2=request.body.var2;
-});
-
-app.get('/search',(req,res,next)=>{
-	var term = req.params.term;
-	//var term = 'aaa';
-	res.json(
-		{1: "ddd"}
-	);
-=======
 var x = "";
 var y = "";
 var z = "";
@@ -62,7 +37,7 @@ app.get('/search',(req,res,next)=>{
 	 	y: y,
 	 	z: z
 	});
->>>>>>> 2940b9ca8ffd60d1d91c85a7e9af7e462b02046d
+
 
 });
 
