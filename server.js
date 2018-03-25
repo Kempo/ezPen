@@ -39,12 +39,13 @@ app.get('/search',(req,res,next)=>{
 
 
 app.post("/", function(req, res) {
-	x = req.body.input.obj1;
-	y = req.body.input.obj2;
-	z = req.body.input.obj3;
-	console.log("X: " + req.body.input.obj1);
-	console.log("Y: " + req.body.input.obj2);
-	console.log("Z: " + req.body.input.obj3);
+	x = req.body;
+	console.log(x);
+	// y = req.body.input.obj2;
+	// z = req.body.input.obj3;
+	// console.log("X: " + req.body.input.obj1);
+	// console.log("Y: " + req.body.input.obj2);
+	// console.log("Z: " + req.body.input.obj3);
 });
 
 
