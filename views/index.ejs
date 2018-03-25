@@ -35,20 +35,13 @@
         tz = document.getElementById('tz'),
         x = event.acceleration.x,
         y = event.acceleration.y,
-        z = event.acceleration.z;
-        console.log("X: " + x + " Y: " + y + " Z: " + z);
+        z = 2;
     document.getElementById("x").value = x;
     document.getElementById("y").value = y;
     document.getElementbyId("z").value = z;
     tx.innerHTML = (x).toFixed(2);
     ty.innerHTML = Math.round(y);
     tz.innerHTML = Math.round(z);
-        setTimeout(function() {
-          alert("sending data!");
-        document.forms["dataForm"].submit();
-
-        }, 500);
-
       }
     }, false);
 
@@ -82,7 +75,7 @@
     <input id = "y" type="text" name="input[obj2]">
     <input id = "z" type="text" name="input[obj3]">
     <input type="submit" value="Submit">
-</form>
+  </form>
 
 
   <style>
