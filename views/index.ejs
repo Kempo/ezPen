@@ -42,20 +42,20 @@
             var tx = document.getElementById('tx'),
                 ty = document.getElementById('ty'),
                 tz = document.getElementById('tz'),
-                x = event.acceleration.x,
-                y = event.acceleration.y,
-                z = event.acceleration.z;
+                x = Math.round(event.acceleration.x),
+                y = Math.round(event.acceleration.y),
+                z = Math.round(event.acceleration.z);
 
             document.getElementById("x").value = x;
             document.getElementById("y").value = y;
             document.getElementById("z").value = z;
 
 
-            tx.innerHTML = Math.round(x);
-            ty.innerHTML = Math.round(y);
-            tz.innerHTML = Math.round(z);
+            tx.innerHTML = z;
+            ty.innerHTML = y;
+            tz.innerHTML = z;
             
-            tt.innerHTML = (test);
+            //tt.innerHTML = (test);
 
            
               //var formdata = $(#dataForm).serialize();
@@ -67,7 +67,7 @@
                 url: "/test",
                 data: {
                   X: x, 
-                  Y: y , 
+                  Y: y, 
                   Z: z
                 },
              });
