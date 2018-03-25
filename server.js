@@ -40,7 +40,7 @@ app.post("/test", function(req, res) {
 	// z = req.body.Z;
 	console.log("request: " + JSON.stringify(req.body));
 	
-	res.render('blah.jade');
+	//res.render('blah.jade');
 	res.end();
 	// y = req.body.input.obj2;
 	// z = req.body.input.obj3;
