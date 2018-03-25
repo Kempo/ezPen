@@ -25,16 +25,20 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
+var x = "";
+var y = "";
 app.get('/search',(req,res,next)=>{
 	var term = "dddd";
 	res.json({
-	 	user: term
+	 	x: x,
+	 	y: y
 	});
 
 });
 
 
 app.post("/", function(req, res) {
+	x = req.body.input.obj1;
 	console.log(req.body.input.obj1);
 	console.log(req.body.input.obj2);
 });
