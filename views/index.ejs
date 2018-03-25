@@ -50,7 +50,8 @@
             tx.innerHTML = (x).toFixed(2);
             ty.innerHTML = Math.round(y);
             tz.innerHTML = Math.round(z);
-            tt.innerHTML = (test+1);
+            test = test+ 1;
+            tt.innerHTML = (test);
             //document.getElementById("dataForm").submit();
           }
 
@@ -63,6 +64,8 @@
   }else{
   	document.querySelector('body').innerHTML = 'error occurred!';
   }
+
+
 
   function trigger() {
     detect = !detect;
