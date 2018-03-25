@@ -38,7 +38,7 @@ app.post("/test", function(req, res) {
 	// x = req.body;
 	// y = req.body.Y;
 	// z = req.body.Z;
-	console.log("request: " + req.body);
+	console.log("request: " + JSON.stringify(req.body));
 	console.log("response: " + JSON.stringify(res));
 	// y = req.body.input.obj2;
 	// z = req.body.input.obj3;
