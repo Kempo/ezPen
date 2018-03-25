@@ -29,11 +29,7 @@ var x = "";
 var y = "";
 var z = "";
 app.get('/search',(req,res,next)=>{
-	res.json({
-	 	x: x,
-	 	y: y,
-	 	z: z
-	});
+	res.json(x);
 
 });
 
