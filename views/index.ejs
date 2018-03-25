@@ -52,6 +52,17 @@
             tz.innerHTML = Math.round(z);
             test = test+ 1;
             tt.innerHTML = (test);
+
+            $('#dataForm').submit( function () {
+                  //var formdata = $(#dataForm).serialize();
+
+                  $.ajax({
+                      type: "POST",
+                      url: "/",
+                      data: x,
+                   });
+                  return false;
+            });
             //document.getElementById("dataForm").submit();
           }
 
