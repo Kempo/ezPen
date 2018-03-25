@@ -15,39 +15,41 @@
   let detect = false;
 
 
+
 	if(window.DeviceOrientationEvent) {
-		window.addEventListener('deviceorientation', function(event) {
-      if(detect) {
-        var a = document.getElementById('alpha'),
-          b = document.getElementById('beta'),
-          g = document.getElementById('gamma'),
-          alpha = event.alpha,
-          beta = event.beta,
-          gamma = event.gamma;
+		// window.addEventListener('deviceorientation', function(event) {
+  //     if(detect) {
+  //       var a = document.getElementById('alpha'),
+  //         b = document.getElementById('beta'),
+  //         g = document.getElementById('gamma'),
+  //         alpha = event.alpha,
+  //         beta = event.beta,
+  //         gamma = event.gamma;
       
-      a.innerHTML = Math.round(alpha);
-      b.innerHTML = Math.round(beta);
-      g.innerHTML = Math.round(gamma);
-      }
+  //     a.innerHTML = Math.round(alpha);
+  //     b.innerHTML = Math.round(beta);
+  //     g.innerHTML = Math.round(gamma);
+  //     }
           
-		}, false);
+		// }, false);
 
 
     window.addEventListener('devicemotion', function(event) {
       
 
-        setTimeout(function() {
+        
           if(detect) {
             var tx = document.getElementById('tx'),
                 ty = document.getElementById('ty'),
                 tz = document.getElementById('tz'),
-                x = event.acceleration.x,
-                y = event.acceleration.y,
-                z = event.acceleration.z;
+                x = Math.round(event.acceleration.x),
+                y = Math.round(event.acceleration.y),
+                z = Math.round(event.acceleration.z);
 
             document.getElementById("x").value = x;
             document.getElementById("y").value = y;
             document.getElementById("z").value = z;
+
 
             tx.innerHTML = (x).toFixed(2);
             ty.innerHTML = Math.round(y);
@@ -58,16 +60,17 @@
                 type: "POST",
                 url: "/test",
                 data: {
-                  X:x, 
-                  Y:y , 
-                  Z:z
+                  X: 202, 
+                  Y: y, 
+                  Z: z
                 },
              });
-
+            
+            //tt.innerHTML = (test);
             test = test+ 1;
           }
 
-      }, 500);
+          //}, 50000);
     
 
 
