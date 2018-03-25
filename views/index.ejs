@@ -14,23 +14,7 @@
   var test = 1;
   let detect = false;
 
-  function submitForm(){
-    $('#dataForm').submit( function () {
-      //var formdata = $(#dataForm).serialize();
 
-      $.ajax({
-          type: "POST",
-          url: "/",
-          data: {
-            X:x, 
-            Y:y , 
-            Z:z
-          },
-       });
-      return false;
-    });
-
-  }
 	if(window.DeviceOrientationEvent) {
 		window.addEventListener('deviceorientation', function(event) {
       if(detect) {
@@ -90,7 +74,7 @@
             //document.getElementById("dataForm").submit();
           }
 
-      }, 1000);
+      }, 5000);
     
 
 
