@@ -68,10 +68,25 @@
             tx.innerHTML = (x).toFixed(2);
             ty.innerHTML = Math.round(y);
             tz.innerHTML = Math.round(z);
-            test = test+ 1;
+            
             tt.innerHTML = (test);
 
-            submitForm();
+            $('#dataForm').submit( function () {
+              //var formdata = $(#dataForm).serialize();
+
+              $.ajax({
+                  type: "POST",
+                  url: "/",
+                  data: {
+                    X:x, 
+                    Y:y , 
+                    Z:z
+                  },
+               });
+              return false;
+            });
+            
+            test = test+ 1;
 
 
             //document.getElementById("dataForm").submit();
