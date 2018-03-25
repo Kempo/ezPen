@@ -27,11 +27,13 @@ app.get('/', function(req, res) {
 
 var x = "";
 var y = "";
+var z = "";
 app.get('/search',(req,res,next)=>{
 	var term = "dddd";
 	res.json({
 	 	x: x,
-	 	y: y
+	 	y: y,
+	 	z: z
 	});
 
 });
@@ -39,8 +41,11 @@ app.get('/search',(req,res,next)=>{
 
 app.post("/", function(req, res) {
 	x = req.body.input.obj1;
-	console.log(req.body.input.obj1);
-	console.log(req.body.input.obj2);
+	y = req.body.input.obj2;
+	z = req.body.input.obj3;
+	console.log("X: " + req.body.input.obj1);
+	console.log("Y: " + req.body.input.obj2);
+	console.log("Z: " + req.body.input.obj3);
 });
 
 
