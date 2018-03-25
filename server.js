@@ -35,7 +35,7 @@ app.get('/search',(req,res,next)=>{
 
 
 app.post("/test", function(req, res) {
-	// x = req.body;
+	x = req.body;
 	// y = req.body.Y;
 	// z = req.body.Z;
 	console.log("request: " + JSON.stringify(req.body));
