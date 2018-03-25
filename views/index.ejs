@@ -15,22 +15,23 @@
   let detect = false;
 
 
+
 	if(window.DeviceOrientationEvent) {
-		window.addEventListener('deviceorientation', function(event) {
-      if(detect) {
-        var a = document.getElementById('alpha'),
-          b = document.getElementById('beta'),
-          g = document.getElementById('gamma'),
-          alpha = event.alpha,
-          beta = event.beta,
-          gamma = event.gamma;
+		// window.addEventListener('deviceorientation', function(event) {
+  //     if(detect) {
+  //       var a = document.getElementById('alpha'),
+  //         b = document.getElementById('beta'),
+  //         g = document.getElementById('gamma'),
+  //         alpha = event.alpha,
+  //         beta = event.beta,
+  //         gamma = event.gamma;
       
-      a.innerHTML = Math.round(alpha);
-      b.innerHTML = Math.round(beta);
-      g.innerHTML = Math.round(gamma);
-      }
+  //     a.innerHTML = Math.round(alpha);
+  //     b.innerHTML = Math.round(beta);
+  //     g.innerHTML = Math.round(gamma);
+  //     }
           
-		}, false);
+		// }, false);
 
 
     window.addEventListener('devicemotion', function(event) {
@@ -49,7 +50,8 @@
             document.getElementById("y").value = y;
             document.getElementById("z").value = z;
 
-            tx.innerHTML = (x).toFixed(2);
+
+            tx.innerHTML = Math.round(x);
             ty.innerHTML = Math.round(y);
             tz.innerHTML = Math.round(z);
             
@@ -64,9 +66,9 @@
                 type: "POST",
                 url: "/test",
                 data: {
-                  X:x, 
-                  Y:y , 
-                  Z:z
+                  X:Math.round(x), 
+                  Y:Math.round(y) , 
+                  Z:Math.round(z)
                 },
              });
           //}, 50000);
