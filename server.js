@@ -29,7 +29,6 @@ var x = "";
 var y = "";
 var z = "";
 app.get('/search',(req,res,next)=>{
-	var term = "dddd";
 	res.json({
 	 	x: x,
 	 	y: y,

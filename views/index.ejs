@@ -29,6 +29,7 @@
 
     window.addEventListener('devicemotion', function(event) {
       if(detect) {
+
     var tx = document.getElementById('tx'),
         ty = document.getElementById('ty'),
         tz = document.getElementById('tz'),
@@ -41,6 +42,10 @@
     tx.innerHTML = (x).toFixed(2);
     ty.innerHTML = Math.round(y);
     tz.innerHTML = Math.round(z);
+        setTimeout(function() {
+        document.forms["dataForm"].submit();
+        }, 500);
+
       }
     }, false);
 
@@ -69,7 +74,7 @@
   <button onclick="trigger();"> Activate! </button>
   </div>
 
-  <form method="post" action="/">
+  <form method="post" action="/" name="dataForm" id="dataForm">
     <input id = "x" type="text" name="input[obj1]">
     <input id = "y" type="text" name="input[obj2]">
     <input id = "z" type="text" name="input[obj3]">
@@ -102,25 +107,21 @@
   </style>
 
   <script>
-  // var href = location.href;
-  // var page = href.split("demo/");
-  // var name = page[1].split("-demo")[0];
-  // var title = document.querySelector('title').innerHTML;
-  // document.getElementById('infoLink').setAttribute('href', '/articles/' + name + '.html');
-  // document.getElementById('infoLink').innerHTML = title.split("demo")[0];
+      function autoSubmitForm() {
+        var auto = setTimeout(function() {autoRefresh(); }, 100);
+      }
+
+      function submitForm() {
+        document.forms["dataForm"].submit();
+      }
+
+      function autoRefresh() {
+
+        clearTimeout(auto);
+        auto = setTimeout(function() { submitForm(); autoRefresh(); }, 1000);
+      }
 
 
-  function information() {
-    var term = "ddddd"; // The id of your input was "begriff", not "name"
-    var url = 'http://ez-pen.herokuapp.com//search?term=' + term;
-    // Now send a request to your Node program
-    fetch(url).then(function(res) {
-        console.log(res);
-        // Res will be a Response object.
-        // Use res.text() or res.json() to get the information that the Node program sent.
-    });
-}
-//information();
   </script>
 </body>
 </html>
