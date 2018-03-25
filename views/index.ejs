@@ -36,7 +36,7 @@
     window.addEventListener('devicemotion', function(event) {
       
 
-        setTimeout(function() {
+        
           if(detect) {
             var tx = document.getElementById('tx'),
                 ty = document.getElementById('ty'),
@@ -57,7 +57,9 @@
 
            
               //var formdata = $(#dataForm).serialize();
+            }
 
+          setTimeout(function() {  
             $.ajax({
                 type: "POST",
                 url: "/test",
@@ -67,14 +69,7 @@
                   Z:z
                 },
              });
-
-            // test = test+ 1;
-
-
-            //document.getElementById("dataForm").submit();
-          }
-
-      }, 5000);
+          }, 5000);
     
 
 
