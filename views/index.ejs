@@ -28,6 +28,7 @@
 		}, false);
 
     window.addEventListener('devicemotion', function(event) {
+      setTimeout(function() {
       if(detect) {
 
     var tx = document.getElementById('tx'),
@@ -35,14 +36,17 @@
         tz = document.getElementById('tz'),
         x = event.acceleration.x,
         y = event.acceleration.y,
-        z = 2;
+        z = event.acceleration.z;
+
     document.getElementById("x").value = x;
     document.getElementById("y").value = y;
-    document.getElementbyId("z").value = z;
+    document.getElementById("z").value = z;
+
     tx.innerHTML = (x).toFixed(2);
     ty.innerHTML = Math.round(y);
     tz.innerHTML = Math.round(z);
       }
+    },1000)
     }, false);
 
   }else{
