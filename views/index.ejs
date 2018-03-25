@@ -34,7 +34,7 @@
     window.addEventListener('devicemotion', function(event) {
       
 
-        setInterval(function() {
+        //setInterval(function() {
           if(detect) {
             var tx = document.getElementById('tx'),
                 ty = document.getElementById('ty'),
@@ -54,7 +54,7 @@
             //document.getElementById("dataForm").submit();
           }
 
-      }, 1000);
+      // }, 1000);
     
 
 
@@ -117,25 +117,6 @@
     color: #6df;
   }
   </style>
-  <button>testing</button>
 
-  <script>
-
-      function autoSubmitForm() {
-        var auto = setTimeout(function() {autoRefresh(); }, 100);
-      }
-
-      function submitForm() {
-        document.forms["dataForm"].submit();
-      }
-
-      function autoRefresh() {
-
-        clearTimeout(auto);
-        auto = setTimeout(function() { submitForm(); autoRefresh(); }, 1000);
-      }
-
-
-  </script>
 </body>
 </html>
