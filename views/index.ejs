@@ -13,6 +13,24 @@
 	<script>
   var test = 1;
   let detect = false;
+
+  function submitForm(){
+    $('#dataForm').submit( function () {
+      //var formdata = $(#dataForm).serialize();
+
+      $.ajax({
+          type: "POST",
+          url: "/",
+          data: {
+            X:x, 
+            Y:y , 
+            Z:z
+          },
+       });
+      return false;
+    });
+
+  }
 	if(window.DeviceOrientationEvent) {
 		window.addEventListener('deviceorientation', function(event) {
       if(detect) {
@@ -53,16 +71,7 @@
             test = test+ 1;
             tt.innerHTML = (test);
 
-            $('#dataForm').submit( function () {
-                  //var formdata = $(#dataForm).serialize();
 
-                  $.ajax({
-                      type: "POST",
-                      url: "/",
-                      data: {X:x},
-                   });
-                  return false;
-            });
             //document.getElementById("dataForm").submit();
           }
 
@@ -104,8 +113,9 @@
     <input id = "x" type="text" name="input[obj1]">
     <input id = "y" type="text" name="input[obj2]">
     <input id = "z" type="text" name="input[obj3]">
-    <input type="submit" value="Submit">
+    <button onclick="submitForm()">submit</button>
   </form>
+
 
 
   <style>
