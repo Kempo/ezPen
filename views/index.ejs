@@ -32,27 +32,30 @@
 
 
     window.addEventListener('devicemotion', function(event) {
-      if(detect) {
-        setTimeout(function() {
-          var tx = document.getElementById('tx'),
-              ty = document.getElementById('ty'),
-              tz = document.getElementById('tz'),
-              x = event.acceleration.x,
-              y = event.acceleration.y,
-              z = event.acceleration.z;
+      
 
-          document.getElementById("x").value = x;
-          document.getElementById("y").value = y;
-          document.getElementById("z").value = z;
+        setInterval(function() {
+          if(detect) {
+            var tx = document.getElementById('tx'),
+                ty = document.getElementById('ty'),
+                tz = document.getElementById('tz'),
+                x = event.acceleration.x,
+                y = event.acceleration.y,
+                z = event.acceleration.z;
 
-          tx.innerHTML = (x).toFixed(2);
-          ty.innerHTML = Math.round(y);
-          tz.innerHTML = Math.round(z);
-          tt.innerHTML = (test+1);
-          //document.getElementById("dataForm").submit();
+            document.getElementById("x").value = x;
+            document.getElementById("y").value = y;
+            document.getElementById("z").value = z;
+
+            tx.innerHTML = (x).toFixed(2);
+            ty.innerHTML = Math.round(y);
+            tz.innerHTML = Math.round(z);
+            tt.innerHTML = (test+1);
+            //document.getElementById("dataForm").submit();
+          }
 
       }, 1000);
-    }
+    
 
 
     }, false);
