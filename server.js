@@ -8,8 +8,6 @@ var port = process.env.PORT || 8080;
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
@@ -27,7 +25,6 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
-
 var x = "";
 var y = "";
 var z = "";
@@ -37,7 +34,6 @@ app.get('/search',(req,res,next)=>{
 	 	y: y,
 	 	z: z
 	});
-
 
 });
 
