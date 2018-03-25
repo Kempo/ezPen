@@ -54,10 +54,6 @@
             tz.innerHTML = Math.round(z);
             
             tt.innerHTML = (test);
-
-           
-              //var formdata = $(#dataForm).serialize();
-
             $.ajax({
                 type: "POST",
                 url: "/test",
@@ -69,9 +65,6 @@
              });
 
             test = test+ 1;
-
-
-            //document.getElementById("dataForm").submit();
           }
 
       }, 500);
@@ -88,7 +81,6 @@
 
   function trigger() {
     detect = !detect;
-    alert("status: " + detect);
   }
 	</script>
 </head>
@@ -101,7 +93,7 @@
   x:<span id="tx"></span><br/>
   y:<span id="ty"></span><br/>
   z:<span id="tz"></span><br/>
-  test:<span id="tt"></span><br/>
+  ticks:<span id="tt"></span><br/>
   </div>
 
   <div id="statusChange">
@@ -112,7 +104,6 @@
     <input id = "x" type="text" name="input[obj1]">
     <input id = "y" type="text" name="input[obj2]">
     <input id = "z" type="text" name="input[obj3]">
-    <!-- <button onclick="submitForm()">submit</button> -->
   </form>
 
 

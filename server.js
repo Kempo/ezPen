@@ -36,17 +36,8 @@ app.get('/search',(req,res,next)=>{
 
 app.post("/test", function(req, res) {
 	x = req.body;
-	// y = req.body.Y;
-	// z = req.body.Z;
 	console.log("request: " + JSON.stringify(req.body));
-	
-	//res.render('blah.jade');
 	res.end();
-	// y = req.body.input.obj2;
-	// z = req.body.input.obj3;
-	// console.log("X: " + req.body.input.obj1);
-	// console.log("Y: " + req.body.input.obj2);
-	// console.log("Z: " + req.body.input.obj3);
 });
 
 
