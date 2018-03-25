@@ -35,10 +35,11 @@ app.get('/search',(req,res,next)=>{
 
 
 app.post("/test", function(req, res) {
-	x = req.body;
+	// x = req.body;
 	// y = req.body.Y;
 	// z = req.body.Z;
-	console.log(x);
+	console.log("request: " + req.body);
+	console.log("response: " + JSON.stringify(res));
 	// y = req.body.input.obj2;
 	// z = req.body.input.obj3;
 	// console.log("X: " + req.body.input.obj1);
