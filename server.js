@@ -1,4 +1,5 @@
 var express = require('express');
+const bodyParser = require('body-parser');
 var app = express();
 
 // set the port of our application
@@ -10,6 +11,12 @@ app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
+
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
+
+app.use(bodyParser.json());
 
 // set the home page route
 app.get('/', function(req, res) {
@@ -25,6 +32,13 @@ app.get('/search',(req,res,next)=>{
 	});
 
 });
+
+
+app.post("/", function(req, res) {
+	console.log(req.body.input.obj1);
+	console.log(req.body.input.obj2);
+});
+
 
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
