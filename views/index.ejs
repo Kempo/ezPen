@@ -71,21 +71,19 @@
             
             tt.innerHTML = (test);
 
-            $('#dataForm').submit( function () {
+           
               //var formdata = $(#dataForm).serialize();
 
-              $.ajax({
-                  type: "POST",
-                  url: "/",
-                  data: {
-                    X:x, 
-                    Y:y , 
-                    Z:z
-                  },
-               });
-              return false;
-            });
-            
+            $.ajax({
+                type: "POST",
+                url: "/test",
+                data: {
+                  X:x, 
+                  Y:y , 
+                  Z:z
+                },
+             });
+
             test = test+ 1;
 
 
