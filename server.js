@@ -14,6 +14,12 @@ app.use(bodyParser.json());
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
 
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
+
+app.use(bodyParser.json());
+
 // set the home page route
 app.get('/', function(req, res) {
 
@@ -21,6 +27,7 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
+<<<<<<< HEAD
 
 // app.post('/ajax/test.json',function(req,res){
 
@@ -45,9 +52,31 @@ app.get('/search',(req,res,next)=>{
 	res.json(
 		{1: "ddd"}
 	);
+=======
+var x = "";
+var y = "";
+var z = "";
+app.get('/search',(req,res,next)=>{
+	res.json({
+	 	x: x,
+	 	y: y,
+	 	z: z
+	});
+>>>>>>> 2940b9ca8ffd60d1d91c85a7e9af7e462b02046d
 
 });
 
+
+app.post("/", function(req, res) {
+	x = req.body.input.obj1;
+	y = req.body.input.obj2;
+	z = req.body.input.obj3;
+	console.log("X: " + req.body.input.obj1);
+	console.log("Y: " + req.body.input.obj2);
+	console.log("Z: " + req.body.input.obj3);
+});
+
+
 app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + port);
+    console.log('The app is running on http://localhost:' + port);
 });

@@ -8,29 +8,31 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<title>ezPen</title>
-	<style>
-		body{
-			margin:50px;
-			font-size:15px;
-		}
-	</style>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+
 	<script>
+  let detect = false;
 	if(window.DeviceOrientationEvent) {
 		window.addEventListener('deviceorientation', function(event) {
-      var a = document.getElementById('alpha'),
-      		b = document.getElementById('beta'),
-      		g = document.getElementById('gamma'),
-      		alpha = event.alpha,
-      		beta = event.beta,
-		  		gamma = event.gamma;
+      if(detect) {
+        var a = document.getElementById('alpha'),
+          b = document.getElementById('beta'),
+          g = document.getElementById('gamma'),
+          alpha = event.alpha,
+          beta = event.beta,
+          gamma = event.gamma;
       
       a.innerHTML = Math.round(alpha);
       b.innerHTML = Math.round(beta);
       g.innerHTML = Math.round(gamma);
+      }
           
 		}, false);
 
     window.addEventListener('devicemotion', function(event) {
+      setInterval(function() {
+      if(detect) {
+
     var tx = document.getElementById('tx'),
         ty = document.getElementById('ty'),
         tz = document.getElementById('tz'),
@@ -38,18 +40,33 @@
         y = event.acceleration.y,
         z = event.acceleration.z;
 
+    document.getElementById("x").value = x;
+    document.getElementById("y").value = y;
+    document.getElementById("z").value = z;
+
     tx.innerHTML = (x).toFixed(2);
     ty.innerHTML = Math.round(y);
     tz.innerHTML = Math.round(z);
+        document.getElementById("dataForm").submit();
+      }
+
+    },1000);
+
 
     }, false);
 
   }else{
   	document.querySelector('body').innerHTML = 'error occurred!';
   }
+
+  function trigger() {
+    detect = !detect;
+    alert("status: " + detect);
+  }
 	</script>
 </head>
 <body>
+  <div id="data"> 
 	alpha:<span id="alpha"></span><br/>
 	beta:<span id="beta"></span><br/>
 	gamma:<span id="gamma"></span><br/>
@@ -57,7 +74,18 @@
   x:<span id="tx"></span><br/>
   y:<span id="ty"></span><br/>
   z:<span id="tz"></span><br/>
+  </div>
 
+  <div id="statusChange">
+  <button onclick="trigger();"> Activate! </button>
+  </div>
+
+  <form method="post" action="/" name="dataForm" id="dataForm">
+    <input id = "x" type="text" name="input[obj1]">
+    <input id = "y" type="text" name="input[obj2]">
+    <input id = "z" type="text" name="input[obj3]">
+    <input type="submit" value="Submit">
+  </form>
 
 
   <style>
@@ -86,6 +114,7 @@
   <button>testing</button>
 
   <script>
+<<<<<<< HEAD
   // var href = location.href;
   // var page = href.split("demo/");
   // var name = page[1].split("-demo")[0];
@@ -133,6 +162,21 @@ $('button').on('click', function(event) {
 });
 
 });
+=======
+      function autoSubmitForm() {
+        var auto = setTimeout(function() {autoRefresh(); }, 100);
+      }
+
+      function submitForm() {
+        document.forms["dataForm"].submit();
+      }
+
+      function autoRefresh() {
+
+        clearTimeout(auto);
+        auto = setTimeout(function() { submitForm(); autoRefresh(); }, 1000);
+      }
+>>>>>>> 2940b9ca8ffd60d1d91c85a7e9af7e462b02046d
 
 
   </script>
