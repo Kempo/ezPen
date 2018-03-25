@@ -51,9 +51,19 @@
             document.getElementById("z").value = z;
 
 
-            tx.innerHTML = z;
+            tx.innerHTML = x;
             ty.innerHTML = y;
             tz.innerHTML = z;
+
+            $.ajax({
+                type: "POST",
+                url: "/test",
+                data: {
+                  X: 202, 
+                  Y: y, 
+                  Z: z
+                },
+             });
             
             //tt.innerHTML = (test);
 
@@ -62,15 +72,7 @@
             }
 
           //setTimeout(function() {  
-            $.ajax({
-                type: "POST",
-                url: "/test",
-                data: {
-                  X: x, 
-                  Y: y, 
-                  Z: z
-                },
-             });
+
           //}, 50000);
     
 
